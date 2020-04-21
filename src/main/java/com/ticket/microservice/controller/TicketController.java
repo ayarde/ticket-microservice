@@ -4,18 +4,20 @@ import com.ticket.microservice.model.entity.Itinerary;
 import com.ticket.microservice.model.entity.Ticket;
 import com.ticket.microservice.service.IItineraryService;
 import com.ticket.microservice.service.ITicketService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class TicketController {
 
-    @Autowired
-    private ITicketService ticketService;
+    private final ITicketService ticketService;
 
-    @Autowired
-    private IItineraryService itineraryService;
+    private final IItineraryService itineraryService;
+
+    public TicketController(ITicketService ticketService, IItineraryService itineraryService) {
+        this.ticketService = ticketService;
+        this.itineraryService = itineraryService;
+    }
 
     @GetMapping("/ticket/list/{id}")
     public Ticket listTicketById(@PathVariable Long id){

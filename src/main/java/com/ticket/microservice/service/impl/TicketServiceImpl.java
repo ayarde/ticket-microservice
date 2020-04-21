@@ -1,7 +1,8 @@
-package com.ticket.microservice.service;
+package com.ticket.microservice.service.impl;
 
-import com.ticket.microservice.model.entity.Ticket;
 import com.ticket.microservice.dao.TicketDAO;
+import com.ticket.microservice.model.entity.Ticket;
+import com.ticket.microservice.service.ITicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
